@@ -1,4 +1,4 @@
-package cmd
+package generate
 
 import (
 	"errors"
@@ -33,20 +33,18 @@ func findGgfFileDirectory() (string, error) {
 	return "", errors.New("ggf.yaml not found")
 }
 
-var generateCmd = &cobra.Command{
-	Use:   "generate",
-	Short: "Do the thing",
-	Run: func(cmd *cobra.Command, args []string) {
-		ggfFileDirectory, err := findGgfFileDirectory()
-		if err != nil {
-			fmt.Println("Error:", err)
-			os.Exit(1)
-		}
+func NewGenerateCommand() *cobra.Command {
+	return &cobra.Command{
+		Use:   "generate",
+		Short: "Do the thing",
+		Run: func(cmd *cobra.Command, args []string) {
+			ggfFileDirectory, err := findGgfFileDirectory()
+			if err != nil {
+				fmt.Println("Error:", err)
+				os.Exit(1)
+			}
 
-		fmt.Println("Found ggf.yaml at", ggfFileDirectory)
-	},
-}
-
-func init() {
-	rootCmd.AddCommand(generateCmd)
+			fmt.Println("Found ggf.yaml at", ggfFileDirectory)
+		},
+	}
 }

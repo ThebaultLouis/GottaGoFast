@@ -7,7 +7,7 @@ import (
 )
 
 func createGgfFile() error {
-	file, err := os.Create("ggf.yaml")
+	file, err := os.Create("ggf.json")
 	if err != nil {
 		return err
 	}
@@ -29,7 +29,7 @@ func NewInitCommand() *cobra.Command {
 				os.Exit(1)
 			}
 
-			fmt.Println("ggf.yaml created!")
+			fmt.Println("ggf.json created!")
 		},
 	}
 }

@@ -1,0 +1,40 @@
+# Create / Update / Delete : Admin
+type Dance {
+    id: ID
+    name: String
+    songLink: String
+    choreograohyVideo: String
+    choreograohyPdf: String
+}
+
+enum Level {
+    BEGINNER
+    NOVICE
+    INTERMEDIATE
+}
+
+type Classe {
+    id: ID
+    level: Level
+    doneOn: String # YYYY-MM-DD
+    learnedDance: Dance
+    reviewedDances: [Dance]
+}
+
+type Album {
+    id: ID
+    name: String
+    doneOn: String # YYYY-MM-DD
+    photos: [String]
+}
+
+type Event {
+    id: ID
+    doneOn: String # YYYY-MM-DD
+    zipcode: String
+    city: String
+    club: String
+    isAtHome: String
+    posterPdf: String
+}
+
